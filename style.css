@@ -1,0 +1,264 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f7f7f7;
+}
+
+header {
+  background: #fc722d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+  height: 60px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  white-space: nowrap;
+  font-size: 18px;
+}
+
+header .logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.header-left .university-name {
+  white-space: nowrap;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  margin-right: 15px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.logout {
+  background: #3c5c7c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.notice {
+  background: transparent;
+  color: #c62828;
+  text-align: center;
+  padding: 6px;
+  font-weight: bold;
+  position: relative;
+  z-index: 50;
+  transition: margin-left 0.3s ease;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+aside {
+  background: #2c3e50;
+  width: 250px;
+  padding: 20px;
+  color: white;
+  min-height: calc(100vh - 136px);
+  transition: transform 0.3s ease;
+}
+
+aside .profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+aside .profile img {
+  width: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+aside a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  margin: 22px 0;
+  padding: 12px 15px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+aside a i {
+  margin-right: 15px;
+  width: 24px;
+  text-align: center;
+  font-size: 18px;
+}
+
+aside a:hover {
+  background: #34495e;
+  padding-left: 15px;
+}
+
+main {
+  flex-grow: 1;
+  padding: 20px;
+  min-width: 300px;
+}
+
+.info-card {
+  background: white;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+.info-card h2 {
+  background: #f26723;
+  color: white;
+  margin: 0;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.info-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-card td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  vertical-align: top;
+}
+
+.status {
+  background: #4caf50;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+footer {
+  background: #f26723;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  header {
+    height: 40px;
+    padding: 10px 15px;
+  }
+
+  .header-left {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  header .logo {
+    height: 30px;
+    margin-right: 8px;
+  }
+
+  .header-left .university-name {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .container {
+    flex-direction: row;
+  }
+
+  aside {
+    width: 40%;
+    position: fixed;
+    z-index: 100;
+    transform: translateX(-100%);
+    height: calc(100vh - 60px);
+    top: 60px;
+    left: 0;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+  }
+
+  aside.active {
+    transform: translateX(0);
+  }
+
+  main {
+    padding: 10px;
+    margin-top: 0;
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+    margin-left: 0;
+  }
+
+  aside.active ~ main {
+    margin-left: 40%;
+  }
+
+  .notice {
+    position: relative;
+    z-index: 50;
+    transition: margin-left 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  aside.active ~ .notice {
+    margin-left: 40%;
+  }
+}
+
+/* ========== ADD THIS FOR NOTICE ANIMATION ========== */
+.notice span {
+  display: inline-block;
+  animation: slide-horizontal 3s ease-in-out infinite;
+  position: relative;
+}
+
+/* Horizontal sliding animation */
+@keyframes slide-horizontal {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 30px;
+  }
+  100% {
+    left: 0;
+  }
+}
+/* Highlight active menu item */
+aside a.active {
+  background: #f26723;
+  color: white;
+}
+.profile-pic-container {
+  position: relative;
+  display: inline-block;
+}
+
+
